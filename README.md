@@ -1,55 +1,50 @@
-Feature Flags Dashboard
+# Feature Flags Dashboard
 
-A React + TypeScript application for viewing and managing feature flags across environments.
+A small **React + TypeScript** dashboard to view and manage feature flags across environments.
 
-Tech Stack
+---
 
-React (Vite)
+## 🧱 Tech Stack
 
-TypeScript
+- **React** (Vite)
+- **TypeScript**
+- **TailwindCSS**
+- **TanStack React Query**
+- **MSW** (Mock Service Worker)
 
-TailwindCSS
+---
 
-TanStack React Query
+## 🧭 Architecture (Feature-Based)
 
-MSW (Mock Service Worker)
+- Feature-based folder structure (components / hooks / types / services)
+- API state (loading/error/caching) managed via **React Query**
+- Toggle implemented with **optimistic updates** + rollback on error
+- Mock API powered by **MSW** (dev-only)
 
-Architecture
+---
 
-Feature-based folder structure
+## 🔌 Mock API (MSW)
 
-Separation of:
+| Method | Endpoint               | Description                 |
+|--------|------------------------|-----------------------------|
+| GET    | `/feature-flags`       | Fetch all feature flags     |
+| PATCH  | `/feature-flags/:id`   | Toggle enabled state        |
 
-Components
+---
 
-Hooks
+## ✅ Technical Highlights
 
-Types
+- **useQuery** for fetching flags
+- **useMutation** for toggling
+- **Optimistic UI** toggle + cache updates
+- **Per-row updating state** (spinner + disabled switch)
+- **Skeleton table loader** while fetching
+- Strong **TypeScript typing** for domain + API
 
-Services
+---
 
-Server state handled via React Query
+## ▶️ Run Locally
 
-Optimistic updates with rollback on error
-
-API (Mocked with MSW)
-Method	Endpoint	Description
-GET	/feature-flags	Fetch all feature flags
-PATCH	/feature-flags/:id	Toggle enabled state
-Key Technical Features
-
-React Query for fetching and mutations
-
-Optimistic UI updates
-
-Per-row mutation loading state
-
-Error handling with rollback
-
-Skeleton table loading state
-
-Type-safe API and domain models
-
-Run Locally
+```bash
 npm install
 npm run dev
