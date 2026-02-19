@@ -1,0 +1,99 @@
+feature-flags-dashboard/
+│
+├── public/
+│
+├── src/
+│   ├── app/
+│   │   ├── App.tsx
+│   │   ├── routes.tsx
+│   │   └── providers/
+│   │       ├── QueryProvider.tsx
+│   │       └── ThemeProvider.tsx
+│   │
+│   ├── features/
+│   │   └── feature-flags/
+│   │       ├── components/
+│   │       │   ├── FeatureFlagsTable/
+│   │       │   │   ├── FeatureFlagsTable.tsx
+│   │       │   │   ├── FeatureFlagsTable.types.ts
+│   │       │   │   └── FeatureFlagsTable.styles.ts
+│   │       │   │
+│   │       │   ├── FeatureFlagRow/
+│   │       │   │   ├── FeatureFlagRow.tsx
+│   │       │   │   └── FeatureFlagRow.types.ts
+│   │       │   │
+│   │       │   └── FeatureFilters/
+│   │       │       ├── FeatureFilters.tsx
+│   │       │       └── FeatureFilters.types.ts
+│   │       │
+│   │       ├── hooks/
+│   │       │   ├── useFeatureFlags.ts
+│   │       │   └── useToggleFeatureFlag.ts
+│   │       │
+│   │       ├── services/
+│   │       │   └── featureFlags.api.ts
+│   │       │
+│   │       ├── types/
+│   │       │   └── featureFlag.types.ts
+│   │       │
+│   │       ├── utils/
+│   │       │   └── featureFlag.helpers.ts
+│   │       │
+│   │       ├── __tests__/
+│   │       │   ├── FeatureFlagsTable.test.tsx
+│   │       │   ├── FeatureFilters.test.tsx
+│   │       │   ├── FeatureFlagRow.test.tsx
+│   │       │   ├── useFeatureFlags.test.ts
+│   │       │   └── useToggleFeatureFlag.test.ts
+│   │       │
+│   │       └── index.ts
+│   │
+│   ├── shared/
+│   │   ├── components/
+│   │   │   ├── Button/
+│   │   │   ├── Switch/
+│   │   │   ├── Spinner/
+│   │   │   ├── Table/
+│   │   │   └── ErrorMessage/
+│   │   │
+│   │   ├── hooks/
+│   │   │   └── useDebounce.ts
+│   │   │
+│   │   ├── types/
+│   │   │   └── api.types.ts
+│   │   │
+│   │   └── utils/
+│   │       └── date.utils.ts
+│   │
+│   ├── services/
+│   │   ├── apiClient.ts
+│   │   └── mock/
+│   │       ├── handlers.ts
+│   │       ├── data.ts
+│   │       └── server.ts
+│   │
+│   ├── tests/
+│   │   ├── setupTests.ts
+│   │   ├── testUtils/
+│   │   │   ├── renderWithProviders.tsx
+│   │   │   ├── createTestQueryClient.ts
+│   │   │   └── mockFeatureFlags.ts
+│   │   └── msw/
+│   │       └── testServer.ts
+│   │
+│   ├── styles/
+│   │   ├── globals.css
+│   │   └── variables.css
+│   │
+│   ├── main.tsx
+│   └── vite-env.d.ts
+│
+├── e2e/
+│   ├── feature-flags.spec.ts
+│   └── fixtures/
+│       └── featureFlags.json
+│
+├── tsconfig.json
+├── package.json
+├── README.md
+└── vitest.config.ts   (or jest.config.ts / playwright.config.ts)
