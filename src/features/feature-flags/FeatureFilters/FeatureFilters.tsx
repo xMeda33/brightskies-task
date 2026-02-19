@@ -1,22 +1,31 @@
-import { Filter, RotateCcw } from 'lucide-react';
-
-// Mock types for demonstration
-type Environment = "development" | "staging" | "production";
-type FeatureFlagsFilters = {
-  environment: Environment | "all";
-  status: "all" | "enabled" | "disabled";
-};
+import { Filter, RotateCcw } from "lucide-react";
+import type {
+  FeatureFlagsFilters,
+  Environment,
+} from "../../types/featureFlag.types.ts";
 
 type Props = {
   value: FeatureFlagsFilters;
   onChange: (next: FeatureFlagsFilters) => void;
 };
 
-const ENV_OPTIONS: Array<{ label: string; value: Environment | "all"; color: string }> = [
+const ENV_OPTIONS: Array<{
+  label: string;
+  value: Environment | "all";
+  color: string;
+}> = [
   { label: "All", value: "all", color: "bg-gray-100 text-gray-700" },
-  { label: "Development", value: "development", color: "bg-blue-50 text-blue-700" },
+  {
+    label: "Development",
+    value: "development",
+    color: "bg-blue-50 text-blue-700",
+  },
   { label: "Staging", value: "staging", color: "bg-amber-50 text-amber-700" },
-  { label: "Production", value: "production", color: "bg-emerald-50 text-emerald-700" },
+  {
+    label: "Production",
+    value: "production",
+    color: "bg-emerald-50 text-emerald-700",
+  },
 ];
 
 const STATUS_OPTIONS: Array<{
@@ -47,7 +56,8 @@ export function FeatureFilters({ value, onChange }: Props) {
               onChange={(e) =>
                 onChange({
                   ...value,
-                  environment: e.target.value as FeatureFlagsFilters["environment"],
+                  environment: e.target
+                    .value as FeatureFlagsFilters["environment"],
                 })
               }
             >
@@ -82,7 +92,7 @@ export function FeatureFilters({ value, onChange }: Props) {
           {(value.environment !== "all" || value.status !== "all") && (
             <div className="flex items-center gap-2 px-3 py-1.5 bg-blue-50 border border-blue-200 rounded-lg">
               <span className="text-xs font-medium text-blue-700">
-                {value.environment !== "all" && value.status !== "all" 
+                {value.environment !== "all" && value.status !== "all"
                   ? "2 filters active"
                   : "1 filter active"}
               </span>
